@@ -47,7 +47,9 @@ class Yahtzee(d1: Int, d2: Int, d3: Int, d4: Int, d5: Int) {
     }
 
     fun smallRun() : Int {
-        return 15
+        val defaultSet = setOf(1,2,3,4,5)
+        val set = turn.toSet()
+        return if (set == defaultSet) 15 else 0
     }
 
 
