@@ -46,6 +46,10 @@ class Yahtzee(d1: Int, d2: Int, d3: Int, d4: Int, d5: Int) {
         return highestPair * 2
     }
 
+    fun smallRun() : Int {
+        return 15
+    }
+
 
 
     fun chance() : Int {

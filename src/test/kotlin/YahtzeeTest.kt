@@ -22,9 +22,7 @@ class MainKtTest {
 
     @Test
     fun testSmallRun() {
-        assertEquals(Yahtzee(1,2,3,4,5), 15)
-        // assertEquals(Yahtzee(5,4,3,2,1), 15)
-
-
+        assertEquals(Yahtzee(1,2,3,4,5).smallRun(), 15)
+        assertEquals(Yahtzee(6,5,4,3,2).smallRun(), 0)
     }
 }
