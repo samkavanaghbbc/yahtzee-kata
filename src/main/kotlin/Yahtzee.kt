@@ -27,32 +27,13 @@ class Yahtzee(d1: Int, d2: Int, d3: Int, d4: Int, d5: Int) {
     }
 
     fun pair(): Int {
-        val turnSet = turn.toSet()
-        var highestPair = 0
-
-        for(s in turnSet) {
-            var occurence = 0
-            for(t in turn) {
-                if (s == t) {
-                    occurence += 1
-                }
-            }
-
-            if (occurence > 1 && s > highestPair) {
-                highestPair = s
-            }
-        }
-
-        return highestPair * 2
+        val t = turn.groupBy { it }.values.filter { it.size > 1 }
+        return t.maxByOrNull { it.first() }?.first()?.times(2) ?: 0
     }
 
     fun smallRun() : Int {
-        val defaultSet = setOf(1,2,3,4,5)
-        val set = turn.toSet()
-        return if (set == defaultSet) 15 else 0
+        return if (setOf(1,2,3,4,5) == turn.toSet()) 15 else 0
     }
-
-
 
     fun chance() : Int {
         return turn.sum()

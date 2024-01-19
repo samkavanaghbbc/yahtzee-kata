@@ -5,24 +5,26 @@ import kotlin.test.assertEquals
 class MainKtTest {
     @Test
     fun testChance() {
-        assertEquals(Yahtzee(1,2,3,4,5).chance(), 15)
+        assertEquals(15, Yahtzee(1,2,3,4,5).chance())
     }
 
     @Test
     fun testOnes() {
-        assertEquals(Yahtzee(1,2,3,4,5).ones(),1)
-        assertEquals(Yahtzee(1,2,3,1,5).ones(),2)
+        assertEquals(1, Yahtzee(1,2,3,4,5).ones())
+        assertEquals(2, Yahtzee(1,2,3,1,5).ones())
     }
 
     @Test
     fun testPair() {
-        assertEquals(Yahtzee(1,2,3,4,4).pair(),8)
-        assertEquals(Yahtzee(1,2,3,3,4).pair(),6)
+        assertEquals(8, Yahtzee(1,2,3,4,4).pair())
+        assertEquals(6, Yahtzee(1,2,3,3,4).pair())
+        assertEquals(10, Yahtzee(1,1,3,5,5).pair())
+        assertEquals(0, Yahtzee(1,2,3,4,5).pair())
     }
 
     @Test
     fun testSmallRun() {
-        assertEquals(Yahtzee(1,2,3,4,5).smallRun(), 15)
-        assertEquals(Yahtzee(6,5,4,3,2).smallRun(), 0)
+        assertEquals(15, Yahtzee(1,2,3,4,5).smallRun())
+        assertEquals(0, Yahtzee(6,5,4,3,2).smallRun())
     }
 }
