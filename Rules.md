@@ -25,7 +25,7 @@ If the dice read 2,3,4,5,6, the player scores 20 (the sum of all the dice), othe
 If the dice are two of a kind and three of a kind, the player scores the sum of all the dice. For example, 1,1,2,2,2 placed on “full house” gives 8. 4,4,4,4,4 is not “full house”.
 
 ### Yahtzee: 
-If all dice are the have the same number, the player scores 50 points, otherwise 0.
+If all dice are the same number, the player scores 50 points, otherwise 0.
 
 ### Chance: 
 The player gets the sum of all dice, no matter what they read.

@@ -1,7 +1,7 @@
 package org.example
 
 fun main() {
-    println("Chance = ${ Yahtzee(1,2,3,4,5).pair() }")
+    println("full house = ${ Yahtzee(1,2,2,2,2).fullHouse() }")
 }
 
 class Yahtzee(d1: Int, d2: Int, d3: Int, d4: Int, d5: Int) {
@@ -41,5 +41,17 @@ class Yahtzee(d1: Int, d2: Int, d3: Int, d4: Int, d5: Int) {
         return turn.sum()
     }
 
+    fun fullHouse() : Int {
+        val orderedPairs = turn.groupBy { it }.values
+        val pairOfNums = orderedPairs.filter { it.size == 2 }.size == 1
+        val trioOfNums = orderedPairs.filter { it.size == 3 }.size == 1
+        return if (pairOfNums && trioOfNums) turn.sum() else 0
+    }
 
+//    fun fullHouse() : Int {
+//        val orderedPairs = turn.groupBy { it }.values
+//        val diffNum = orderedPairs.size
+//
+//        return if (diffNum == 2) return turn.sum() else 0
+//    }
 }

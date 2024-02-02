@@ -31,5 +31,15 @@ class MainKtTest {
     @Test
     fun testFullHouse() {
         assertEquals(12, Yahtzee(2,2,2,3,3).fullHouse())
+        assertEquals(0, Yahtzee(1,1,2,3,3).fullHouse())
+        assertEquals(0, Yahtzee(1,2,2,2,2).fullHouse())
+        assertEquals(0, Yahtzee(2,2,2,2,2).fullHouse())
+    }
+
+    @Test
+    fun testThreeOfAKind() {
+        assertEquals(9, Yahtzee(3,3,3,2,1).threeOfAKind())
+        assertEquals(9, Yahtzee(3,3,3,3,1).threeOfAKind())
+        assertEquals(0, Yahtzee(3,3,4,2,1).threeOfAKind())
     }
 }
