@@ -27,4 +27,9 @@ class MainKtTest {
         assertEquals(15, Yahtzee(1,2,3,4,5).smallRun())
         assertEquals(0, Yahtzee(6,5,4,3,2).smallRun())
     }
+
+    @Test
+    fun testFullHouse() {
+        assertEquals(12, Yahtzee(2,2,2,3,3).fullHouse())
+    }
 }

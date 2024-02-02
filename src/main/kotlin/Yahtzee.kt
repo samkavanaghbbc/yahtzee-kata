@@ -1,7 +1,7 @@
 package org.example
 
 fun main() {
-    println("Chance = ${ Yahtzee(1,2,3,4,5).chance() }")
+    println("Chance = ${ Yahtzee(1,2,3,4,5).pair() }")
 }
 
 class Yahtzee(d1: Int, d2: Int, d3: Int, d4: Int, d5: Int) {
@@ -27,8 +27,10 @@ class Yahtzee(d1: Int, d2: Int, d3: Int, d4: Int, d5: Int) {
     }
 
     fun pair(): Int {
-        val t = turn.groupBy { it }.values.filter { it.size > 1 }
-        return t.maxByOrNull { it.first() }?.first()?.times(2) ?: 0
+        val orderedPairs = turn.groupBy { it }.values
+        val onlyPairs = orderedPairs.filter { it.size > 1 }
+        val biggestPair = onlyPairs.maxByOrNull { it.first() }
+        return biggestPair?.first()?.times(2) ?: 0
     }
 
     fun smallRun() : Int {
@@ -38,4 +40,6 @@ class Yahtzee(d1: Int, d2: Int, d3: Int, d4: Int, d5: Int) {
     fun chance() : Int {
         return turn.sum()
     }
+
+
 }
